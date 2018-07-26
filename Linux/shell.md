@@ -88,6 +88,10 @@ This's a test
  10       orange,apple,mongo
 ```
 
+- sed  
+sed -i '/^$/d' a.txt会将没内容的空行删除  
+
+
 - 代码解读  
  ``` shell
   #!/bin/sh
@@ -101,8 +105,8 @@ This's a test
   8 fi
   9 
  10 echo -n "generating loss_record!\n"
- 11 grep Iteration $1 | grep loss | awk '{print $13}' | sed '/^$/d' > loss_record
- 12 grep Iteration $1 | grep loss | tail -n 1 | awk '{print $9}' >> loss_record
+ 11 grep Iteration $1 | grep loss | awk '{print $13}' | sed '/^$/d' > loss_record # 找到含有Interaction和loss的行 awk输出第13个，sed删除空行（因为最后输出总loss时是没有那么长的，会存在空行）， > 写入文件
+ 12 grep Iteration $1 | grep loss | tail -n 1 | awk '{print $9}' >> loss_record # 将含有Interation和loss的最后一行 awk输出第9个数， 合并到loss_record文件中
  13 
  14 echo -n "generating acc_top1!\n"
  15 grep "Test net output" $1 | grep "accuracy =" | awk '{print $11}' > acc_top1
