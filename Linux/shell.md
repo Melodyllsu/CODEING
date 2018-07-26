@@ -1,6 +1,7 @@
 参考链接：  
 https://www.cnblogs.com/yinheyi/p/6648242.html  
 菜鸟教程：  
+http://www.runoob.com/linux/linux-shell-echo.html
 
 
 常见的编程语言分为两类：一个是编译型语言，如：c/c++/java等，它们远行前全部一起要经过编译器的编译。  
