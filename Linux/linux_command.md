@@ -7,6 +7,8 @@ $ nvidia-smi
 
 4. 查看文件夹的空间  
 df -h
+4.1 列出目录下文件的详细信息  
+ll  
 5. 回到账号的home  
 cd -
 6. 多GPU训练  
@@ -27,6 +29,8 @@ sudo chmod -R 777 caffe/
 
 11. rm -rf 文件夹   
 迭代移除文件夹
+11.1 重命名一个文件  
+mv <src> <der>
 
 12. 修改密码  
 1、sudo su转为root用户  
@@ -82,3 +86,5 @@ $ cat  >  filename
 只能创建新文件,不能编辑已有文件.   
 - 将几个文件合并为一个文件。  
 $cat   file1   file2  > file  
+
+
