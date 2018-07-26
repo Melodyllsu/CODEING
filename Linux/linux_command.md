@@ -40,12 +40,12 @@ grep -rnI REGISTER_LAYER_CLASS .
 14. 查看git的版本并初始化  
 git log  
 git init  
-
 14.1. git中加入文件  
+```
 git add *.cpp  
 git add *.c  
 git add *.h  
-
+```
 15. 显示文件状态（查看哪些文件被add到git中了），也用于找到有改动的文件  
 git status  
 
@@ -68,3 +68,17 @@ htop  如果没有就安装 sudo apt-get install htop
 
 21. 查看两个文件之间的区别  
 vimdiff <file> <file>
+
+22. 将日志和错误同时输出到文本和命令行  
+2>&1 | tee models/SqueezeNet/log/funetune_log.txt
+2是标准错误，&1是标准输出，2>&1意思就是将标准错误输出到标准输出中。  
+如果没有2>&1,只会有标准输出，没有错误，tee的作用同时输出到控制台和文件。
+
+23. cat主要有三大功能  
+- 一次显示整个文件。  
+$ cat   filename
+- 从键盘创建一个文件。
+$ cat  >  filename
+只能创建新文件,不能编辑已有文件.   
+- 将几个文件合并为一个文件。  
+$cat   file1   file2  > file  
