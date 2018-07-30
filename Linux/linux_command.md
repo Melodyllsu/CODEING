@@ -97,4 +97,12 @@ g 表示“同组（group）用户”，即与文件属主有相同组ID的所�
 o 表示“其他（others）用户”。    
 a 表示“所有（all）用户”。它是系统默认值。   
 
-
+25. 压缩文件  
+压缩当前的文件夹 zip -r ./xahot.zip ./* -r表示递归  
+zip [参数] [打包后的文件名] [打包的目录路径]  
+解压 unzip xahot.zip  
+  
+tar -zcvf /home/xahot.tar.gz /xahot  
+tar -zcvf 打包后生成的文件名全路径 要打包的目录  
+例子：把/xahot文件夹打包后生成一个/home/xahot.tar.gz的文件。  
+tar -xf all.tar 这条命令是解出all.tar包中所有文件，-x是解开的意思。  
