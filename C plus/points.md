@@ -1,5 +1,5 @@
 ## 2018.7.28
-- enum(枚举)
+### enum(枚举)
 ```c
 enum spectrum{red, orange, yellow, green, blue, violet, indigo, ultraviolet };
 //1. 该语句让spectrum成为新类型的名称，spectrum被称为枚举
