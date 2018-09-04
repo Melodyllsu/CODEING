@@ -176,6 +176,55 @@ return b < a ? b : a;//<的重载在T类中完成，分工明确
 ```
 - namespace  
 
+--------------------------
+## 组合与继承  
+类与类之间的关系： 继承、复合、委托   
+- 复合Composition，（has-a）:一个类中有另一个东西   
+同步创建  
+设计模式：Adapter  
+```c
+template <class T, class Sequence = deque<T> >
+class queue {
+...
+protected:
+Sequence c; // 底層容器，复合
+public:
+// 以下完全利用 c 的操作函數完成
+bool empty() const { return c.empty(); }
+size_type size() const { return c.size(); }
+reference front() { return c.front(); }
+reference back() { return c.back(); }
+// deque 是兩端可進出，queue 是末端進前端出（先進先出）
+void push(const value_type& x) { c.push_back(x); }
+void pop() { c.pop_front(); }
+};
+```
+构造由内而外  
+Container的构造函数首先调用Component的default构造函数，然后才执行自己  
+
+析构由外而内  
+Container的析构函数首先执行自己，然后才调用Component的析构函数  
+- 委托Delegation，Handle-Body（pimpl），Composition by reference，有个指针指向另一个东西   
+不同步创建   
+
+- 继承Inheritance， 表示is-a  
+构造由内而外  
+析构由外而内  
+父类的析构函数必须是virtual否者会出现undefined behaviour    
+-------------
+## 12. 虚函数与多态    
+ - non-virtual函数：不希望子类重新定义它   
+ - virtual函数：希望子类重新定义它，已经有默认定义了   
+ - pure virtual函数：希望子类一定要重新定义它，对它没有默认定义  
+虚函数的用法：  
+设计模式：Template Method----先写好框架，将无法定义的方法留给子类去实现   
+
+## 13. 委托相关设计  
+设计模式：Composite----委托与继承结合
+设计模式：Prototype  
+让未来的子类自己创建一份蓝本，传给父类，并在父类需要的时候让父类复制  
+
+
 
 
 
