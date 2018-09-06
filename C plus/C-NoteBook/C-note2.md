@@ -106,7 +106,18 @@ pa->vfunc1();//动态绑定，虚函数表
 ```
 ## New Delete  
 底层是用malloc实现的   
-
+```c
+Complex* pc = new Complex(1,2);
+...
+delete pc;
+...
+void* mem = operator new( sizeof(Complex) );//内存分配
+pc = static_cast<Complex*>(mem);//转型 
+pc->Complex::Complex(1,2);//构造函数
+...
+Complex::~Complex(pc); //析构函数
+operator delete(pc); //释放内存
+```
 
 
 
