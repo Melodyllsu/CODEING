@@ -8,8 +8,30 @@ operator double() const{
 //使用
 double d = 4+f; //若f是分数类，此时调用的是转换函数   
 ```
-## 3. non-explicit-one-argument ctor  
+## 3. explicit
 给构造函数加上explict，拒绝隐式类型转换，防止执行时的二义性  
+```c
+class Fraction
+{
+public: 
+    Fraction(int num, int den=1)
+    : m_numerator(num), m_denominator(den){ }
+    operator double() const {
+        return (double)(m_numerator / m_denominator);
+    }
+    Fraction operator+(const Fraction& f){
+        return Fraction(...);
+    }
+private:
+    int m_numerator;
+    int m_denominator;
+};
+
+...
+Fraction f(3, 5);
+Fraction d2 = f+4; //此处有错误，二义性，可以将f转换成double，又因为重载了+也可以将4转换为Fraction类型。多于一条路劲可行时编译器无法选择。
+```
+若Fraction前加ecplict，则该构造函数只能用于生成对象，不能用于隐式转换
 
 ## 4. pointer-like classes   
 智能指针  
